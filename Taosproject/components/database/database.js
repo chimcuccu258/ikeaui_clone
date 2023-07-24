@@ -17,8 +17,7 @@ export const Items = [
     category: 'furniture',
     productName: 'VIMLE 2-seat sofa',
     productPrice: 579,
-    description:
-      '2-seat sofa, with wide armrests/Saxemara black-blue',
+    description: '2-seat sofa, with wide armrests/Saxemara black-blue',
     isOff: true,
     // offPercentage: 10,
     productImage: require('./images/furniture/sofas/fabric_sofas/two-seat-sofas/VIMLE/VIMLE_1.jpg'),
@@ -34,8 +33,7 @@ export const Items = [
     category: 'furniture',
     productName: 'SMEDSTORP 2-seat sofa',
     productPrice: 679,
-    description:
-      '2-seat sofa, Viarp/beige/brown oak',
+    description: '2-seat sofa, Viarp/beige/brown oak',
     isOff: false,
     productImage: require('./images/furniture/sofas/fabric_sofas/two-seat-sofas/SMEDSTORP/SMEDSTORP_1.jpg'),
     isAvailable: true,
@@ -48,10 +46,9 @@ export const Items = [
   {
     id: 3,
     category: 'furniture',
-    productName: 'SODERHAMN',
+    productName: 'SODERHAMN 2-seat sofa',
     productPrice: 669,
-    description:
-      '2-seat sofa, with chaise longue/Gunnared beige',
+    description: '2-seat sofa, with chaise longue/Gunnared beige',
     isOff: true,
     // offPercentage: 18,
     productImage: require('./images/furniture/sofas/fabric_sofas/two-seat-sofas/SODERHAMN/SODERHAMN_1.jpg'),
@@ -65,10 +62,9 @@ export const Items = [
   {
     id: 4,
     category: 'furniture',
-    productName: 'KNOPPARP',
+    productName: 'KNOPPARP 2-seat sofa',
     productPrice: 99.99,
-    description:
-      '2-seat sofa, Knisa light grey',
+    description: '2-seat sofa, Knisa light grey',
     isOff: false,
     productImage: require('./images/furniture/sofas/fabric_sofas/two-seat-sofas/KNOPPARP/KNOPPARP_1.jpg'),
     isAvailable: true,
@@ -77,5 +73,50 @@ export const Items = [
       require('./images/furniture/sofas/fabric_sofas/two-seat-sofas/KNOPPARP/KNOPPARP_3.jpg'),
       require('./images/furniture/sofas/fabric_sofas/two-seat-sofas/KNOPPARP/KNOPPARP_4.jpg'),
     ],
-  }
+  },
+];
+
+export const Rooms = [
+  {
+    id: 1,
+    category: 'rooms',
+    productName: 'Home office',
+    productImage: require('./images/rooms/Room_1.jpg'),
+  },
+  {
+    id: 2,
+    category: 'rooms',
+    productName: 'Living room',
+    productImage: require('./images/rooms/Room_2.jpg'),
+  },
+  {
+    id: 3,
+    category: 'rooms',
+    productName: 'Dining',
+    productImage: require('./images/rooms/Room_3.jpg'),
+  },
+  {
+    id: 4,
+    category: 'rooms',
+    productName: 'Bedroom',
+    productImage: require('./images/rooms/Room_4.jpg'),
+  },
+  {
+    id: 5,
+    category: 'rooms',
+    productName: "Children's room",
+    productImage: require('./images/rooms/Room_5.jpg'),
+  },
+  {
+    id: 6,
+    category: 'rooms',
+    productName: 'Bathroom',
+    productImage: require('./images/rooms/Room_6.jpg'),
+  },
+  {
+    id: 7,
+    category: 'rooms',
+    productName: 'Kitchen',
+    productImage: require('./images/rooms/Room_7.jpg'),
+  },
 ];

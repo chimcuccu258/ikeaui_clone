@@ -8,14 +8,63 @@ import {
   TextInput,
   Image,
   Linking,
+  Keyboard,
+  FlatList,
 } from 'react-native';
-import React, {useState} from 'react';
-import {COLORS} from '../database/database';
+import React, {useEffect, useState} from 'react';
+import {COLORS, Items, Rooms} from '../database/database';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
-const Home = () => {
-  const [searchQuery, setSearchQuery] = React.useState('');
+const Home = ({navigation}) => {
+  const [searchQuery, setSearchQuery] = useState('');
+  const [room, setRoom] = useState([]);
+
+  useEffect(() => {
+    const unsubscribe = navigation.addListener('focus', () => {
+      getDataFromDB();
+    });
+
+    return unsubscribe;
+  }, [navigation]);
+
+  const getDataFromDB = () => {
+    let roomList = [];
+    for (let index = 0; index < Rooms.length; index++) {
+      if (Rooms[index].category == 'rooms') {
+        roomList.push(Rooms[index]);
+      }
+    }
+    setRoom(roomList);
+  };
+
+  const ProductCard = ({data}) => {
+    return (
+      <TouchableOpacity activeOpacity={0.5}>
+        <View
+          style={{
+            width: '100%',
+            height: 500,
+            backgroundColor: COLORS.white,
+            padding: 20,
+            // position: 'relative',
+            // justifyContent: 'center',
+            // alignItems: 'center',
+            // marginBottom: 8,
+          }}>
+          <Image
+            source={data.productImage}
+            style={{
+              width: '100%%',
+              height: '100%%',
+              position: 'absolute',
+              resizeMode: 'contain',
+            }}
+          />
+        </View>
+      </TouchableOpacity>
+    );
+  };
 
   return (
     <SafeAreaView>
@@ -31,7 +80,7 @@ const Home = () => {
               justifyContent: 'center',
               alignItems: 'center',
             }}>
-            <TouchableOpacity>
+            <TouchableOpacity activeOpacity={0.5}>
               <Icon
                 name="leaf"
                 style={{fontSize: 20, color: COLORS.white, marginRight: 5}}
@@ -63,9 +112,9 @@ const Home = () => {
                 justifyContent: 'space-between',
                 alignItems: 'center',
               }}>
-              <TouchableOpacity>
+              <TouchableOpacity activeOpacity={0.5}>
                 <Image
-                  style={{width: 90, height: 36}}
+                  style={{width: 90, height: 36, borderRadius: 6}}
                   source={require('../database/images/Ikea_logo.svg.png')}
                 />
               </TouchableOpacity>
@@ -74,7 +123,7 @@ const Home = () => {
                 style={{
                   flexDirection: 'row',
                 }}>
-                <TouchableOpacity>
+                <TouchableOpacity activeOpacity={0.5}>
                   <Icon
                     name="user-o"
                     style={{
@@ -84,7 +133,7 @@ const Home = () => {
                     }}
                   />
                 </TouchableOpacity>
-                <TouchableOpacity>
+                <TouchableOpacity activeOpacity={0.5}>
                   <Icon
                     name="heart-o"
                     style={{
@@ -94,7 +143,7 @@ const Home = () => {
                     }}
                   />
                 </TouchableOpacity>
-                <TouchableOpacity>
+                <TouchableOpacity activeOpacity={0.5}>
                   <Icon
                     name="shopping-cart"
                     style={{
@@ -104,7 +153,7 @@ const Home = () => {
                     }}
                   />
                 </TouchableOpacity>
-                <TouchableOpacity>
+                <TouchableOpacity activeOpacity={0.5}>
                   <Icon
                     name="bars"
                     style={{
@@ -148,16 +197,18 @@ const Home = () => {
               />
             </View>
 
-            <View style={{
-              flexDirection: 'row',
-              justifyContent: 'space-between',
-              marginBottom: 10,
-            }}>
+            <View
+              style={{
+                flexDirection: 'row',
+                justifyContent: 'space-between',
+                marginBottom: 10,
+              }}>
               <TouchableOpacity
                 style={{
                   flexDirection: 'row',
                   alignItems: 'center',
-                }}>
+                }}
+                activeOpacity={0.5}>
                 <Icon name="truck" style={{fontSize: 25, marginRight: 5}} />
                 <Text style={{fontSize: 14}}>Enter postcode</Text>
               </TouchableOpacity>
@@ -165,18 +216,18 @@ const Home = () => {
                 style={{
                   flexDirection: 'row',
                   alignItems: 'center',
-                }}>
+                }}
+                activeOpacity={0.5}>
                 <Icon name="building" style={{fontSize: 20, marginRight: 5}} />
                 <Text style={{fontSize: 14}}>Select store</Text>
               </TouchableOpacity>
             </View>
 
-            <View style={{
-              backgroundColor: COLORS.grey,
-              padding: 0.5,
-            }}>
-
-            </View>
+            <View
+              style={{
+                backgroundColor: COLORS.grey,
+                padding: 0.5,
+              }}></View>
 
             <View
               style={{
@@ -195,17 +246,25 @@ const Home = () => {
               </Text>
             </View>
             <View>
-              <View>
-                <Text
-                  style={{
-                    fontSize: 18,
-                    color: COLORS.black,
-                    fontWeight: '600',
-                    lineSpacing: 1,
-                  }}>
-                  Product
-                </Text>
-              </View>
+              <Text
+                style={{
+                  fontSize: 20,
+                  color: COLORS.black,
+                  fontWeight: '700',
+                }}>
+                Rooms
+              </Text>
+            </View>
+            <View>
+              {/* {room.map(data => {
+                return <ProductCard data={data} key={data.id} />;
+              })} */}
+              <FlatList
+                data={room}
+                renderItem={({item, index}) => {
+                  return <ProductCard data={item} key={item.id} />;
+                }}
+              />
             </View>
           </View>
         </ScrollView>
