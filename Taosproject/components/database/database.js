@@ -119,4 +119,40 @@ export const Rooms = [
     productName: 'Kitchen',
     productImage: require('./images/rooms/Room_7.jpg'),
   },
+  {
+    id: 8,
+    category: 'rooms',
+    productName: 'Hallway',
+    productImage: require('./images/rooms/Room_8.jpg'),
+  },
+  {
+    id: 9,
+    category: 'rooms',
+    productName: 'Laundry room',
+    productImage: require('./images/rooms/Room_9.jpg'),
+  },
+  {
+    id: 10,
+    category: 'rooms',
+    productName: 'Outdoor',
+    productImage: require('./images/rooms/Room_10.jpg'),
+  },
+  {
+    id: 11,
+    category: 'rooms',
+    productName: 'Student room',
+    productImage: require('./images/rooms/Room_11.jpg'),
+  },
+  {
+    id: 12,
+    category: 'rooms',
+    productName: "Teen's room",
+    productImage: require('./images/rooms/Room_12.jpg'),
+  },
+  {
+    id: 13,
+    category: 'rooms',
+    productName: 'IKEA for Business',
+    productImage: require('./images/rooms/Room_13.jpg'),
+  },
 ];

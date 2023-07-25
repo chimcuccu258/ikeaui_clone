@@ -10,8 +10,9 @@ import {
   Linking,
   Keyboard,
   FlatList,
+  Animated,
 } from 'react-native';
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useState, useRef} from 'react';
 import {COLORS, Items, Rooms} from '../database/database';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
@@ -44,133 +45,157 @@ const Home = ({navigation}) => {
         <View
           style={{
             width: '100%',
-            height: 500,
+            height: 250,
+            marginBottom: 10,
             backgroundColor: COLORS.white,
-            padding: 20,
-            // position: 'relative',
-            // justifyContent: 'center',
-            // alignItems: 'center',
-            // marginBottom: 8,
           }}>
           <Image
             source={data.productImage}
             style={{
-              width: '100%%',
-              height: '100%%',
+              objectFit: 'cover',
+              width: '100%',
+              height: '100%',
               position: 'absolute',
-              resizeMode: 'contain',
             }}
           />
+        </View>
+        <View style={{padding: 20}}>
+          <Text style={{fontSize: 18, fontWeight: 700}}>
+            {data.productName}
+          </Text>
         </View>
       </TouchableOpacity>
     );
   };
 
+  let AnimatedHeaderValue = useRef(new Animated.Value(0)).current;
+  const Header_Max_Height = 50;
+  const Header_Min_Height = 0;
+
+  const animateHeight = AnimatedHeaderValue.interpolate({
+    inputRange: [0, Header_Max_Height - Header_Min_Height],
+    outputRange: [Header_Max_Height, Header_Min_Height],
+    extrapolate: 'clamp',
+  });
+
   return (
-    <SafeAreaView>
+    <SafeAreaView style={{flex: 1, backgroundColor: COLORS.white}}>
       <View
         style={{width: '100%', height: '100%', backgroundColor: COLORS.white}}>
         <StatusBar backgroundColor={COLORS.white} barStyle={'dark-content'} />
-        <ScrollView>
+
+        <Animated.View
+          style={{
+            backgroundColor: COLORS.black,
+            flexDirection: 'row',
+            justifyContent: 'center',
+            alignItems: 'center',
+            height: animateHeight,
+          }}>
+          <TouchableOpacity activeOpacity={0.5}>
+            <Icon
+              name="leaf"
+              style={{fontSize: 20, color: COLORS.white, marginRight: 5}}
+            />
+          </TouchableOpacity>
+          <TouchableOpacity>
+            <Text
+              style={{
+                color: COLORS.white,
+                fontSize: 14,
+              }}
+              onPress={() =>
+                Linking.openURL(
+                  'https://www.ikea.com/nl/en/customer-service/services/',
+                )
+              }>
+              What can we help you with? Check our Services!
+            </Text>
+          </TouchableOpacity>
+        </Animated.View>
+
+        <Animated.View>
           <View
             style={{
-              backgroundColor: COLORS.black,
-              padding: 16,
               flexDirection: 'row',
-              justifyContent: 'center',
+              justifyContent: 'space-between',
               alignItems: 'center',
+              marginLeft: 20,
+              marginRight: 20,
+              marginBottom: 10,
+              marginTop: 10,
             }}>
             <TouchableOpacity activeOpacity={0.5}>
-              <Icon
-                name="leaf"
-                style={{fontSize: 20, color: COLORS.white, marginRight: 5}}
+              <Image
+                style={{width: 90, height: 36}}
+                source={require('../database/images/Ikea_logo.svg.png')}
               />
             </TouchableOpacity>
-            <TouchableOpacity>
-              <Text
-                style={{
-                  color: COLORS.white,
-                }}
-                onPress={() =>
-                  Linking.openURL(
-                    'https://www.ikea.com/nl/en/customer-service/services/',
-                  )
-                }>
-                What can we help you with? Check our Services!
-              </Text>
-            </TouchableOpacity>
+
+            <View
+              style={{
+                flexDirection: 'row',
+              }}>
+              <TouchableOpacity activeOpacity={0.5}>
+                <Icon
+                  name="user-o"
+                  style={{
+                    fontSize: 22,
+                    marginRight: 25,
+                    color: COLORS.blue,
+                  }}
+                />
+              </TouchableOpacity>
+              <TouchableOpacity activeOpacity={0.5}>
+                <Icon
+                  name="heart-o"
+                  style={{
+                    fontSize: 22,
+                    marginRight: 25,
+                    color: COLORS.blue,
+                  }}
+                />
+              </TouchableOpacity>
+              <TouchableOpacity activeOpacity={0.5}>
+                <Icon
+                  name="shopping-cart"
+                  style={{
+                    fontSize: 24,
+                    marginRight: 25,
+                    color: COLORS.blue,
+                  }}
+                />
+              </TouchableOpacity>
+              <TouchableOpacity activeOpacity={0.5}>
+                <Icon
+                  name="bars"
+                  style={{
+                    fontSize: 22,
+                    color: COLORS.blue,
+                  }}
+                />
+              </TouchableOpacity>
+            </View>
           </View>
+        </Animated.View>
+
+        <ScrollView
+          scrollEventThrottle={16}
+          onScroll={Animated.event(
+            [{nativeEvent: {contentOffset: {y: AnimatedHeaderValue}}}],
+            {useNativeDriver: false},
+          )}>
           <View
             style={{
-              marginTop: 20,
-              marginRight: 20,
-              marginLeft: 20,
+              marginTop: 10,
+              marginRight: 10,
+              marginLeft: 10,
             }}>
             <View
               style={{
                 flexDirection: 'row',
                 justifyContent: 'space-between',
                 alignItems: 'center',
-              }}>
-              <TouchableOpacity activeOpacity={0.5}>
-                <Image
-                  style={{width: 90, height: 36, borderRadius: 6}}
-                  source={require('../database/images/Ikea_logo.svg.png')}
-                />
-              </TouchableOpacity>
-
-              <View
-                style={{
-                  flexDirection: 'row',
-                }}>
-                <TouchableOpacity activeOpacity={0.5}>
-                  <Icon
-                    name="user-o"
-                    style={{
-                      fontSize: 20,
-                      marginRight: 25,
-                      color: COLORS.blue,
-                    }}
-                  />
-                </TouchableOpacity>
-                <TouchableOpacity activeOpacity={0.5}>
-                  <Icon
-                    name="heart-o"
-                    style={{
-                      fontSize: 20,
-                      marginRight: 25,
-                      color: COLORS.blue,
-                    }}
-                  />
-                </TouchableOpacity>
-                <TouchableOpacity activeOpacity={0.5}>
-                  <Icon
-                    name="shopping-cart"
-                    style={{
-                      fontSize: 20,
-                      marginRight: 25,
-                      color: COLORS.blue,
-                    }}
-                  />
-                </TouchableOpacity>
-                <TouchableOpacity activeOpacity={0.5}>
-                  <Icon
-                    name="bars"
-                    style={{
-                      fontSize: 20,
-                      color: COLORS.blue,
-                    }}
-                  />
-                </TouchableOpacity>
-              </View>
-            </View>
-
-            <View
-              style={{
-                flexDirection: 'row',
-                justifyContent: 'space-between',
-                alignItems: 'center',
-                marginTop: 20,
                 marginBottom: 20,
               }}>
               <Icon
@@ -231,12 +256,12 @@ const Home = ({navigation}) => {
 
             <View
               style={{
-                marginTop: 40,
+                marginTop: 20,
                 marginBottom: 10,
               }}>
               <Text
                 style={{
-                  fontSize: 22,
+                  fontSize: 26,
                   color: COLORS.black,
                   fontWeight: '700',
                   letterSpacing: 1,
@@ -248,20 +273,21 @@ const Home = ({navigation}) => {
             <View>
               <Text
                 style={{
-                  fontSize: 20,
+                  fontSize: 24,
                   color: COLORS.black,
                   fontWeight: '700',
+                  marginBottom: 20,
                 }}>
-                Rooms
+                All rooms
               </Text>
             </View>
             <View>
-              {/* {room.map(data => {
-                return <ProductCard data={data} key={data.id} />;
+              {/* {room.map(item => {
+                return <ProductCard data={item} key={item.id} />;
               })} */}
               <FlatList
                 data={room}
-                renderItem={({item, index}) => {
+                renderItem={({item}) => {
                   return <ProductCard data={item} key={item.id} />;
                 }}
               />
