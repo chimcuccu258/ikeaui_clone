@@ -56,6 +56,7 @@ const Home = ({navigation}) => {
               width: '100%',
               height: '100%',
               position: 'absolute',
+              borderRadius: 10,
             }}
           />
         </View>
@@ -63,6 +64,10 @@ const Home = ({navigation}) => {
           <Text style={{fontSize: 18, fontWeight: 700}}>
             {data.productName}
           </Text>
+          <MaterialCommunityIcons
+            name="arrow-right"
+            style={{fontSize: 20, marginTop: 10}}
+          />
         </View>
       </TouchableOpacity>
     );
@@ -292,6 +297,20 @@ const Home = ({navigation}) => {
                 }}
               />
             </View>
+          </View>
+          <View
+            style={{
+              backgroundColor: COLORS.grey,
+              padding: 0.5,
+            }}>
+          </View>
+          <View style={{flexDirection: 'row', alignItems: 'center', justifyContent: 'center', display: 'flex'}}>
+            <Text>
+              Back to top
+            </Text>
+            <Text>
+              Share
+            </Text>
           </View>
         </ScrollView>
       </View>
