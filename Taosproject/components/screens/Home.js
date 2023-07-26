@@ -13,7 +13,7 @@ import {
   Animated,
 } from 'react-native';
 import React, {useEffect, useState, useRef} from 'react';
-import {COLORS, Items, Rooms} from '../database/database';
+import {COLORS, Items, Rooms, FootContents} from '../database/database';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
@@ -82,6 +82,16 @@ const Home = ({navigation}) => {
     outputRange: [Header_Max_Height, Header_Min_Height],
     extrapolate: 'clamp',
   });
+
+  const scrollViewRef = useRef(null);
+
+  const scrollToTop = () => {
+    scrollViewRef.current?.scrollTo({x: 0, y: 0, animated: true});
+  };
+
+  const [rotateValue, setRotateValue] = useState(new Animated.Value(0));
+
+  const [isOpenCustomerService, setIsOpenCustomerService] = useState(false);
 
   return (
     <SafeAreaView style={{flex: 1, backgroundColor: COLORS.white}}>
@@ -185,6 +195,7 @@ const Home = ({navigation}) => {
         </Animated.View>
 
         <ScrollView
+          ref={scrollViewRef}
           scrollEventThrottle={16}
           onScroll={Animated.event(
             [{nativeEvent: {contentOffset: {y: AnimatedHeaderValue}}}],
@@ -287,30 +298,227 @@ const Home = ({navigation}) => {
               </Text>
             </View>
             <View>
-              {/* {room.map(item => {
+              {room.map(item => {
                 return <ProductCard data={item} key={item.id} />;
-              })} */}
-              <FlatList
+              })}
+              {/* <FlatList
                 data={room}
                 renderItem={({item}) => {
                   return <ProductCard data={item} key={item.id} />;
                 }}
-              />
+              /> */}
             </View>
           </View>
           <View
             style={{
               backgroundColor: COLORS.grey,
-              padding: 0.5,
+              padding: 0.2,
+            }}></View>
+          <View
+            style={{
+              display: 'flex',
+              flexDirection: 'row',
+              width: '100%',
+              justifyContent: 'center',
+              marginTop: 20,
             }}>
+            <TouchableOpacity
+              activeOpacity={0.5}
+              style={{
+                display: 'flex',
+                padding: 18,
+                backgroundColor: COLORS.grey,
+                borderRadius: 50,
+                alignItems: 'center',
+                justifyContent: 'center',
+              }}
+              onPress={scrollToTop}>
+              <Text style={{fontWeight: 600}}>Back to top</Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              activeOpacity={0.5}
+              style={{
+                padding: 20,
+              }}>
+              <Text style={{fontWeight: 600}}>Share</Text>
+            </TouchableOpacity>
           </View>
-          <View style={{flexDirection: 'row', alignItems: 'center', justifyContent: 'center', display: 'flex'}}>
-            <Text>
-              Back to top
-            </Text>
-            <Text>
-              Share
-            </Text>
+          <View
+            style={{
+              marginTop: 20,
+              backgroundColor: COLORS.grey,
+            }}>
+            <View style={{marginRight: 25, marginLeft: 25, marginTop: 60}}>
+              <Text style={{fontWeight: 700, fontSize: 22}}>
+                Join IKEA family
+              </Text>
+              <Text
+                style={{
+                  marginTop: 15,
+                  fontSize: 14,
+                  color: COLORS.darkGrey,
+                  fontWeight: 400,
+                }}>
+                Bring your ideas to life with special discounts, inspiration,
+                and lots of good things in store. It's all free.
+              </Text>
+              <TouchableOpacity activeOpacity={0.5} style={{marginTop: 15}}>
+                <Text
+                  style={{
+                    textDecorationLine: 'underline',
+                    color: COLORS.darkGrey,
+                  }}>
+                  See more
+                </Text>
+              </TouchableOpacity>
+              <View
+                style={{
+                  display: 'flex',
+                  flexDirection: 'row',
+                  width: '100%',
+                  marginTop: 20,
+                }}>
+                <TouchableOpacity
+                  activeOpacity={0.5}
+                  style={{
+                    padding: 15,
+                    backgroundColor: COLORS.blue,
+                    borderRadius: 50,
+                  }}>
+                  <Text
+                    style={{
+                      fontWeight: 700,
+                      color: COLORS.white,
+                    }}>
+                    Join or log in
+                  </Text>
+                </TouchableOpacity>
+              </View>
+
+              <View style={{paddingTop: 50}}>
+                <TouchableOpacity
+                  activeOpacity={0.5}
+                  style={{
+                    display: 'flex',
+                    flexDirection: 'row',
+                    justifyContent: 'space-between',
+                    alignContent: 'center',
+                    paddingBottom: 20,
+                  }}
+                  onPress={() => {
+                    setIsOpenCustomerService(!isOpenCustomerService);
+                    const newValue = rotateValue._value === 0 ? 1 : 0;
+                    Animated.timing(rotateValue, {
+                      toValue: newValue,
+                      duration: 300,
+                      useNativeDriver: false,
+                    }).start();
+                  }}>
+                  <Text style={{fontSize: 18, fontWeight: '700'}}>
+                    Customer service
+                  </Text>
+                  <Animated.View
+                    style={{
+                      transform: [
+                        {
+                          rotate: rotateValue.interpolate({
+                            inputRange: [0, 1],
+                            outputRange: ['0deg', '180deg'],
+                          }),
+                        },
+                      ],
+                    }}>
+                    <Icon name="chevron-down" style={{fontSize: 16}} />
+                  </Animated.View>
+                </TouchableOpacity>
+                {isOpenCustomerService ? (
+                  <View style={{paddingBottom: 20}}>
+                    <TouchableOpacity
+                      activeOpacity={0.5}
+                      style={{fontSize: 15, paddingBottom: 10}}>
+                      <Text>Customer service</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity
+                      activeOpacity={0.5}
+                      style={{fontSize: 15, paddingBottom: 10}}>
+                      <Text>My orders</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity
+                      activeOpacity={0.5}
+                      style={{fontSize: 15, paddingBottom: 10}}>
+                      <Text>Returns & claims</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity
+                      activeOpacity={0.5}
+                      style={{fontSize: 15, paddingBottom: 10}}>
+                      <Text>Delivery</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity
+                      activeOpacity={0.5}
+                      style={{fontSize: 15, paddingBottom: 10}}>
+                      <Text>Stock information</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity
+                      activeOpacity={0.5}
+                      style={{fontSize: 15, paddingBottom: 10}}>
+                      <Text>Services</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity
+                      activeOpacity={0.5}
+                      style={{fontSize: 15, paddingBottom: 10}}>
+                      <Text>Recalls</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity
+                      activeOpacity={0.5}
+                      style={{fontSize: 15, paddingBottom: 10}}>
+                      <Text>Personal advice</Text>
+                    </TouchableOpacity>
+                  </View>
+                ) : null}
+                <TouchableOpacity
+                  activeOpacity={0.5}
+                  style={{
+                    display: 'flex',
+                    flexDirection: 'row',
+                    justifyContent: 'space-between',
+                    alignContent: 'center',
+                    paddingBottom: 20,
+                  }}>
+                  <Text style={{fontSize: 18, fontWeight: '700'}}>
+                    About IKEA
+                  </Text>
+                  <Icon name="chevron-down" style={{fontSize: 16}} />
+                </TouchableOpacity>
+                <TouchableOpacity
+                  activeOpacity={0.5}
+                  style={{
+                    display: 'flex',
+                    flexDirection: 'row',
+                    justifyContent: 'space-between',
+                    alignContent: 'center',
+                    paddingBottom: 20,
+                  }}>
+                  <Text style={{fontSize: 18, fontWeight: '700'}}>
+                    Shopping at IKEA
+                  </Text>
+                  <Icon name="chevron-down" style={{fontSize: 16}} />
+                </TouchableOpacity>
+                <TouchableOpacity
+                  activeOpacity={0.5}
+                  style={{
+                    display: 'flex',
+                    flexDirection: 'row',
+                    justifyContent: 'space-between',
+                    alignContent: 'center',
+                    paddingBottom: 20,
+                  }}>
+                  <Text style={{fontSize: 18, fontWeight: '700'}}>
+                    IKEA Family & Business
+                  </Text>
+                  <Icon name="chevron-down" style={{fontSize: 16}} />
+                </TouchableOpacity>
+              </View>
+            </View>
           </View>
         </ScrollView>
       </View>

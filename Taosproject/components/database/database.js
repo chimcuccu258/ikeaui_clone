@@ -1,11 +1,12 @@
 export const COLORS = {
   white: '#ffffff',
-  black: '#000000',
+  black: '#111111',
   green: '#00AC76',
   red: '#C04345',
   blue: '#045cb0',
   yellow: '#f4d104',
-  grey: '#C1C1C1',
+  grey: '#F5F5F5',
+  darkGrey: '#484848',
   backgroundLight: '#F0F0F3',
   backgroundMedium: '#B9B9B9',
   backgroundDark: '#777777',
@@ -154,5 +155,48 @@ export const Rooms = [
     category: 'rooms',
     productName: 'IKEA for Business',
     productImage: require('./images/rooms/Room_13.jpg'),
+  },
+];
+
+export const FootContents = [
+  {
+    id: 1,
+    category: 'customerService',
+    content: 'Customer service',
+  },
+  {
+    id: 2,
+    category: 'customerService',
+    content: 'My orders',
+  },
+  {
+    id: 3,
+    category: 'customerService',
+    content: 'Returns & claims',
+  },
+  {
+    id: 4,
+    category: 'customerService',
+    content: 'Delivery',
+  },
+  {
+    id: 5,
+    category: 'customerService',
+    content: 'Stock information',
+  },
+  {
+    id: 6,
+    category: 'customerService',
+    content: 'Services',
+  },
+  {
+    id: 7,
+    category: 'customerService',
+    content: 'Recalls',
+  },
+  {
+    id: 8,
+    category: 'customerService',
+    content: 'Personal advice',
   },
 ];
