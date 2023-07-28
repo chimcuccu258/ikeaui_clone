@@ -47,6 +47,76 @@ const HomeOffice = () => {
   });
 
   const scrollViewRef = useRef(null);
+  const flatListRef = useRef();
+
+  const CarouselData = [
+    {
+      id: 1,
+      category: 'carousel',
+      title: 'Desks & computer desks',
+      image: require('../../database/images/rooms/HomeOffice/HomeCarousel_1.jpg'),
+    },
+    {
+      id: 2,
+      category: 'carousel',
+      title: 'Desk chairs',
+      image: require('../../database/images/rooms/HomeOffice/HomeCarousel_2.jpg'),
+    },
+    {
+      id: 3,
+      category: 'carousel',
+      title: 'Storage units & cabinets',
+      image: require('../../database/images/rooms/HomeOffice/HomeCarousel_3.jpg'),
+    },
+    {
+      id: 4,
+      category: 'carousel',
+      title: 'Drawer units',
+      image: require('../../database/images/rooms/HomeOffice/HomeCarousel_4.jpg'),
+    },
+    {
+      id: 5,
+      category: 'carousel',
+      title: 'Paper & media organisers',
+      image: require('../../database/images/rooms/HomeOffice/HomeCarousel_5.jpg'),
+    },
+    {
+      id: 6,
+      category: 'carousel',
+      title: 'Work lamps',
+      image: require('../../database/images/rooms/HomeOffice/HomeCarousel_6.jpg'),
+    },
+    {
+      id: 7,
+      category: 'carousel',
+      title: 'Paper & media boxes',
+      image: require('../../database/images/rooms/HomeOffice/HomeCarousel_7.jpg'),
+    },
+    {
+      id: 8,
+      category: 'carousel',
+      title: 'Bookcases',
+      image: require('../../database/images/rooms/HomeOffice/HomeCarousel_8.jpg'),
+    },
+    {
+      id: 9,
+      category: 'carousel',
+      title: 'Lighting',
+      image: require('../../database/images/rooms/HomeOffice/HomeCarousel_9.jpg'),
+    },
+    {
+      id: 10,
+      category: 'carousel',
+      title: 'Curtains',
+      image: require('../../database/images/rooms/HomeOffice/HomeCarousel_10.jpg'),
+    },
+    {
+      id: 11,
+      category: 'carousel',
+      title: 'Acoustic panels',
+      image: require('../../database/images/rooms/HomeOffice/HomeCarousel_11.jpg'),
+    },
+  ];
 
   const ReturnHome = ({data}) => {
     return (
@@ -190,21 +260,40 @@ const HomeOffice = () => {
           </View>
         </Animated.View>
 
-        <View
+        <FlatList
           ref={scrollViewRef}
           style={{marginRight: 10, marginLeft: 10, marginTop: 20}}
           scrollEventThrottle={16}
           onScroll={Animated.event(
             [{nativeEvent: {contentOffset: {y: AnimatedHeaderValue}}}],
             {useNativeDriver: false},
-          )}>
-          <View>
-            <ReturnHome />
-          </View>
-          <View>
-            <Text style={{fontSize: 30, fontWeight: 'bold', marginTop: 30,}}>Home Office</Text>
-          </View>
-        </View>
+          )}
+          ListHeaderComponent={<ReturnHome />}
+          ListFooterComponent={
+            <View style={{marginTop: 30}}>
+              <Text style={{fontSize: 30, fontWeight: '700'}}>Home Office</Text>
+              <View style={{marginTop: 10}}>
+                <FlatList
+                  ref={flatListRef}
+                  data={CarouselData}
+                  horizontal
+                  keyExtractor={item => item.id}
+                  renderItem={({item}) => {
+                    return (
+                      <TouchableOpacity
+                        activeOpacity={0.5}
+                        showsVerticalScrollIndicator={false}>
+                        <View>
+                          <Text>{item.title}</Text>
+                        </View>
+                      </TouchableOpacity>
+                    );
+                  }}
+                />
+              </View>
+            </View>
+          }
+        />
       </View>
     </SafeAreaView>
   );
