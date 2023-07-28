@@ -1,22 +1,21 @@
 import * as React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import Home from './components/screens/Home';
-import Cart from './components/screens/Cart';
-import ProductInfo from './components/screens/ProductInfo';
+import Home from './src/screens/Home';
+import Cart from './src/screens/Cart';
+import ProductInfo from './src/screens/ProductInfo';
+import MainNavigation from './src/navigation/mainNavigation';
+
+// import Cart from './src/screens/Cart';
+// import ProductInfo from './src/screens/ProductInfo';
+// import Home from './src/screens/Home';
 
 const Stack = createNativeStackNavigator();
 
 const App = () => {
   return (
     <NavigationContainer>
-      <Stack.Navigator screenOptions={{
-        headerShown: false,
-      }}>
-        <Stack.Screen name="Home" component={Home} />
-        <Stack.Screen name="Cart" component={Cart} />
-        <Stack.Screen name="ProductInfo" component={ProductInfo} />
-      </Stack.Navigator>
+      <MainNavigation />
     </NavigationContainer>
   );
 };

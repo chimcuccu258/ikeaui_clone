@@ -15,11 +15,24 @@ import {COLORS, Items, Rooms, FootContents} from '../database/database';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
-const Home = ({navigation}) => {
+import {useNavigation} from '@react-navigation/native';
+
+const Home = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [room, setRoom] = useState([]);
-  const [rotateValue, setRotateValue] = useState(new Animated.Value(0));
-  const [isOpenFootContent1, setIsOpenFootContent1] = useState(false);
+  const [rotateFooterContentA, setRotationFooterContentA] = useState(
+    new Animated.Value(0),
+  );
+  const [rotateFooterContentB, setRotationFooterContentB] = useState(
+    new Animated.Value(0),
+  );
+  const [rotateFooterContentC, setRotationFooterContentC] = useState(
+    new Animated.Value(0),
+  );
+  const [rotateFooterContentD, setRotationFooterContentD] = useState(
+    new Animated.Value(0),
+  );
+  const [isOpenFooterContentA, setIsOpenFooterContentA] = useState(false);
 
   useEffect(() => {
     const unsubscribe = navigation.addListener('focus', () => {
@@ -46,6 +59,7 @@ const Home = ({navigation}) => {
   let AnimatedHeaderValue = useRef(new Animated.Value(0)).current;
   const Header_Max_Height = 50;
   const Header_Min_Height = 0;
+  const navigation = useNavigation();
 
   const animateHeight = AnimatedHeaderValue.interpolate({
     inputRange: [0, Header_Max_Height - Header_Min_Height],
@@ -53,11 +67,12 @@ const Home = ({navigation}) => {
     extrapolate: 'clamp',
   });
 
-  const scrollViewRef = useRef(null);
+  const scrollViewRef = useRef(null)
 
   const ProductCard = ({data}) => {
     return (
       <TouchableOpacity
+        onPress={() => navigation.navigate('HomeOffice',{data: data})}
         activeOpacity={0.5}
         style={{marginRight: 10, marginLeft: 10}}>
         <View
@@ -183,9 +198,9 @@ const Home = ({navigation}) => {
                   paddingBottom: 20,
                 }}
                 onPress={() => {
-                  setIsOpenFootContent1(!isOpenFootContent1);
-                  const newValue = rotateValue._value == 0 ? 1 : 0;
-                  Animated.timing(rotateValue, {
+                  // setIsOpenFooterContentA(!isOpenFooterContentA);
+                  const newValue = rotateFooterContentA._value == 0 ? 1 : 0;
+                  Animated.timing(rotateFooterContentA, {
                     toValue: newValue,
                     duration: 300,
                     useNativeDriver: false,
@@ -198,17 +213,17 @@ const Home = ({navigation}) => {
                   style={{
                     transform: [
                       {
-                        rotate: rotateValue.interpolate({
+                        rotate: rotateFooterContentA.interpolate({
                           inputRange: [0, 1],
-                          outputRange: ['0deg', '90deg'],
+                          outputRange: ['0deg', '-90deg'],
                         }),
                       },
                     ],
                   }}>
-                  <Icon name="chevron-down" style={{fontSize: 16}} />
+                  <Icon name="chevron-left" style={{fontSize: 16}} />
                 </Animated.View>
               </TouchableOpacity>
-              {isOpenFootContent1 ? (
+              {/* {isOpenFooterContentA ? (
                 <View style={{paddingBottom: 20}}>
                   {FootContents.map((item, index) => {
                     return (
@@ -221,7 +236,7 @@ const Home = ({navigation}) => {
                     );
                   })}
                 </View>
-              ) : null}
+              ) : null} */}
 
               <TouchableOpacity
                 activeOpacity={0.5}
@@ -231,11 +246,31 @@ const Home = ({navigation}) => {
                   justifyContent: 'space-between',
                   alignContent: 'center',
                   paddingBottom: 20,
+                }}
+                onPress={() => {
+                  const newValue = rotateFooterContentB._value == 0 ? 1 : 0;
+                  Animated.timing(rotateFooterContentB, {
+                    toValue: newValue,
+                    duration: 300,
+                    useNativeDriver: false,
+                  }).start();
                 }}>
                 <Text style={{fontSize: 18, fontWeight: '700'}}>
                   About IKEA
                 </Text>
-                <Icon name="chevron-down" style={{fontSize: 16}} />
+                <Animated.View
+                  style={{
+                    transform: [
+                      {
+                        rotate: rotateFooterContentB.interpolate({
+                          inputRange: [0, 1],
+                          outputRange: ['0deg', '-90deg'],
+                        }),
+                      },
+                    ],
+                  }}>
+                  <Icon name="chevron-left" style={{fontSize: 16}} />
+                </Animated.View>
               </TouchableOpacity>
               <TouchableOpacity
                 activeOpacity={0.5}
@@ -245,11 +280,31 @@ const Home = ({navigation}) => {
                   justifyContent: 'space-between',
                   alignContent: 'center',
                   paddingBottom: 20,
+                }}
+                onPress={() => {
+                  const newValue = rotateFooterContentC._value == 0 ? 1 : 0;
+                  Animated.timing(rotateFooterContentC, {
+                    toValue: newValue,
+                    duration: 300,
+                    useNativeDriver: false,
+                  }).start();
                 }}>
                 <Text style={{fontSize: 18, fontWeight: '700'}}>
                   Shopping at IKEA
                 </Text>
-                <Icon name="chevron-down" style={{fontSize: 16}} />
+                <Animated.View
+                  style={{
+                    transform: [
+                      {
+                        rotate: rotateFooterContentC.interpolate({
+                          inputRange: [0, 1],
+                          outputRange: ['0deg', '-90deg'],
+                        }),
+                      },
+                    ],
+                  }}>
+                  <Icon name="chevron-left" style={{fontSize: 16}} />
+                </Animated.View>
               </TouchableOpacity>
               <TouchableOpacity
                 activeOpacity={0.5}
@@ -259,11 +314,31 @@ const Home = ({navigation}) => {
                   justifyContent: 'space-between',
                   alignContent: 'center',
                   paddingBottom: 20,
+                }}
+                onPress={() => {
+                  const newValue = rotateFooterContentD._value == 0 ? 1 : 0;
+                  Animated.timing(rotateFooterContentD, {
+                    toValue: newValue,
+                    duration: 300,
+                    useNativeDriver: false,
+                  }).start();
                 }}>
                 <Text style={{fontSize: 18, fontWeight: '700'}}>
                   IKEA Family & Business
                 </Text>
-                <Icon name="chevron-down" style={{fontSize: 16}} />
+                <Animated.View
+                  style={{
+                    transform: [
+                      {
+                        rotate: rotateFooterContentD.interpolate({
+                          inputRange: [0, 1],
+                          outputRange: ['0deg', '-90deg'],
+                        }),
+                      },
+                    ],
+                  }}>
+                  <Icon name="chevron-left" style={{fontSize: 16}} />
+                </Animated.View>
               </TouchableOpacity>
             </View>
           </View>
