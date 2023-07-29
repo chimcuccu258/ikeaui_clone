@@ -481,7 +481,9 @@ const Home = () => {
         <FlatList
           ref={scrollViewRef}
           data={room}
-          renderItem={({item, index}) => <ProductCard data={item} key={item.id} />}
+          renderItem={({item, index}) => (
+            <ProductCard data={item} key={item.id} />
+          )}
           keyExtractor={item => item.id}
           scrollEventThrottle={16}
           onScroll={Animated.event(

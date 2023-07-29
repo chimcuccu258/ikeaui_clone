@@ -282,9 +282,27 @@ const HomeOffice = () => {
                     return (
                       <TouchableOpacity
                         activeOpacity={0.5}
-                        showsVerticalScrollIndicator={false}>
-                        <View>
-                          <Text>{item.title}</Text>
+                        showsVerticalScrollIndicator={false}
+                        style={{marginRight: 20}}>
+                        <View style={{borderRadius: 10, display: 'flex', overflow: 'hidden',}}>
+                          <View
+                            style={{
+                              overflow: 'hidden',
+                              width: '100%',
+                            }}>
+                            <Image
+                              style={{
+                                objectFit: 'cover',
+                                borderRadius: 10,
+                                width: 180,
+                                height: 100,
+                              }}
+                              source={item.image}
+                            />
+                          </View>
+                          <View>
+                            <Text style={{marginTop: 10}}>{item.title}</Text>
+                          </View>
                         </View>
                       </TouchableOpacity>
                     );
