@@ -71,7 +71,7 @@ const Home = () => {
   const ProductCard = ({data}) => {
     return (
       <TouchableOpacity
-        onPress={() => navigation.navigate('HomeOffice', {data: data})}
+        onPress={() => navigation.navigate(data.screen, {data: data})}
         activeOpacity={0.5}
         style={{marginRight: 10, marginLeft: 10}}>
         <View
@@ -485,7 +485,7 @@ const Home = () => {
             <ProductCard data={item} key={item.id} />
           )}
           keyExtractor={item => item.id}
-          scrollEventThrottle={16}
+          scrollEventThrottle={10}
           onScroll={Animated.event(
             [{nativeEvent: {contentOffset: {y: AnimatedHeaderValue}}}],
             {useNativeDriver: false},

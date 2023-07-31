@@ -16,7 +16,14 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import {useNavigation} from '@react-navigation/native';
 
-const HomeOffice = () => {
+
+
+const HomeOffice = ({route}) => {
+
+  const {data} = route.params;
+
+  console.log(data);
+
   const navigation = useNavigation();
   const [searchQuery, setSearchQuery] = useState('');
   const [rotateFooterContentA, setRotationFooterContentA] = useState(
@@ -268,15 +275,17 @@ const HomeOffice = () => {
             [{nativeEvent: {contentOffset: {y: AnimatedHeaderValue}}}],
             {useNativeDriver: false},
           )}
+             
           ListHeaderComponent={<ReturnHome />}
           ListFooterComponent={
             <View style={{marginTop: 30}}>
-              <Text style={{fontSize: 30, fontWeight: '700'}}>Home Office</Text>
+              <Text style={{fontSize: 30, fontWeight: '700'}}>{data.productName}</Text>
               <View style={{marginTop: 10}}>
                 <FlatList
                   ref={flatListRef}
                   data={CarouselData}
                   horizontal
+                  showsHorizontalScrollIndicator={false}
                   keyExtractor={item => item.id}
                   renderItem={({item}) => {
                     return (
@@ -284,7 +293,12 @@ const HomeOffice = () => {
                         activeOpacity={0.5}
                         showsVerticalScrollIndicator={false}
                         style={{marginRight: 20}}>
-                        <View style={{borderRadius: 10, display: 'flex', overflow: 'hidden',}}>
+                        <View
+                          style={{
+                            borderRadius: 10,
+                            display: 'flex',
+                            overflow: 'hidden',
+                          }}>
                           <View
                             style={{
                               overflow: 'hidden',
@@ -300,9 +314,7 @@ const HomeOffice = () => {
                               source={item.image}
                             />
                           </View>
-                          <View>
-                            <Text style={{marginTop: 10}}>{item.title}</Text>
-                          </View>
+                          <Text style={{marginTop: 10}}>{item.title}</Text>
                         </View>
                       </TouchableOpacity>
                     );

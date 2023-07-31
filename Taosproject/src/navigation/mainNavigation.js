@@ -3,6 +3,7 @@ import React from 'react';
 import Home from '../screens/Home';
 import HomeOffice from '../screens/Details/HomeOffice';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import LivingRoom from '../screens/Details/LivingRoom';
 
 const Stack = createNativeStackNavigator();
 
@@ -17,6 +18,11 @@ export default function MainNavigation() {
       <Stack.Screen
         name="HomeOffice"
         component={HomeOffice}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="LivingRoom"
+        component={LivingRoom}
         options={{headerShown: false}}
       />
     </Stack.Navigator>

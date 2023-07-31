@@ -83,12 +83,14 @@ export const Rooms = [
     category: 'rooms',
     productName: 'Home office',
     productImage: require('./images/rooms/Room_1.jpg'),
+    screen: "HomeOffice"
   },
   {
     id: 2,
     category: 'rooms',
     productName: 'Living room',
     productImage: require('./images/rooms/Room_2.jpg'),
+    screen: "LivingRoom"
   },
   {
     id: 3,
