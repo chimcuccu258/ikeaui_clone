@@ -20,7 +20,6 @@ export const Items = [
     productPrice: 579,
     description: '2-seat sofa, with wide armrests/Saxemara black-blue',
     isOff: true,
-    // offPercentage: 10,
     productImage: require('./images/furniture/sofas/fabric_sofas/two-seat-sofas/VIMLE/VIMLE_1.jpg'),
     isAvailable: true,
     productImageList: [
@@ -97,66 +96,77 @@ export const Rooms = [
     category: 'rooms',
     productName: 'Dining',
     productImage: require('./images/rooms/Room_3.jpg'),
+    screen: "Dining"
   },
   {
     id: 4,
     category: 'rooms',
     productName: 'Bedroom',
     productImage: require('./images/rooms/Room_4.jpg'),
+    screen: "Bedroom"
   },
   {
     id: 5,
     category: 'rooms',
     productName: "Children's room",
     productImage: require('./images/rooms/Room_5.jpg'),
+    screen: "ChildRoom"
   },
   {
     id: 6,
     category: 'rooms',
     productName: 'Bathroom',
     productImage: require('./images/rooms/Room_6.jpg'),
+    screen: "Bathroom"
   },
   {
     id: 7,
     category: 'rooms',
     productName: 'Kitchen',
     productImage: require('./images/rooms/Room_7.jpg'),
+    screen: "Kitchen"
   },
   {
     id: 8,
     category: 'rooms',
     productName: 'Hallway',
     productImage: require('./images/rooms/Room_8.jpg'),
+    screen: "Hallway"
   },
   {
     id: 9,
     category: 'rooms',
     productName: 'Laundry room',
     productImage: require('./images/rooms/Room_9.jpg'),
+    screen: "LaundryRoom"
   },
   {
     id: 10,
     category: 'rooms',
     productName: 'Outdoor',
     productImage: require('./images/rooms/Room_10.jpg'),
+    screen: "Outdoor"
   },
   {
     id: 11,
     category: 'rooms',
     productName: 'Student room',
     productImage: require('./images/rooms/Room_11.jpg'),
+    screen: "StudentRoom"
   },
   {
     id: 12,
     category: 'rooms',
     productName: "Teen's room",
     productImage: require('./images/rooms/Room_12.jpg'),
+    screen: "TeenRoom"
   },
   {
     id: 13,
     category: 'rooms',
     productName: 'IKEA for Business',
     productImage: require('./images/rooms/Room_13.jpg'),
+    screen: "Business"
   },
 ];
 

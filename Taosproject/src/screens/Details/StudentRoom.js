@@ -1,12 +1,12 @@
 import { View, Text } from 'react-native'
 import React from 'react'
 
-const LivingRoom = () => {
+const StudentRoom = () => {
   return (
     <View>
-      <Text>LivingRoom</Text>
+      <Text>StudentRoom</Text>
     </View>
   )
 }
 
-export default LivingRoom
+export default StudentRoom

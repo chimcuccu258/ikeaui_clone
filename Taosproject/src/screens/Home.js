@@ -73,7 +73,7 @@ const Home = () => {
       <TouchableOpacity
         onPress={() => navigation.navigate(data.screen, {data: data})}
         activeOpacity={0.5}
-        style={{marginRight: 10, marginLeft: 10}}>
+        style={{marginLeft: 10, marginRight: 10}}>
         <View
           style={{
             width: '100%',
@@ -197,7 +197,6 @@ const Home = () => {
                   paddingBottom: 20,
                 }}
                 onPress={() => {
-                  // setIsOpenFooterContentA(!isOpenFooterContentA);
                   const newValue = rotateFooterContentA._value == 0 ? 1 : 0;
                   Animated.timing(rotateFooterContentA, {
                     toValue: newValue,
@@ -222,20 +221,6 @@ const Home = () => {
                   <Icon name="chevron-left" style={{fontSize: 16}} />
                 </Animated.View>
               </TouchableOpacity>
-              {/* {isOpenFooterContentA ? (
-                <View style={{paddingBottom: 20}}>
-                  {FootContents.map((item, index) => {
-                    return (
-                      <TouchableOpacity
-                        activeOpacity={0.5}
-                        style={{fontSize: 15, paddingBottom: 10}}
-                        key={index}>
-                        <Text>{item.content}</Text>
-                      </TouchableOpacity>
-                    );
-                  })}
-                </View>
-              ) : null} */}
 
               <TouchableOpacity
                 activeOpacity={0.5}
@@ -637,7 +622,6 @@ const Home = () => {
                         paddingBottom: 20,
                       }}
                       onPress={() => {
-                        // setIsOpenFooterContentA(!isOpenFooterContentA);
                         const newValue =
                           rotateFooterContentA._value == 0 ? 1 : 0;
                         Animated.timing(rotateFooterContentA, {
@@ -663,20 +647,6 @@ const Home = () => {
                         <Icon name="chevron-left" style={{fontSize: 16}} />
                       </Animated.View>
                     </TouchableOpacity>
-                    {/* {isOpenFooterContentA ? (
-                      <View style={{paddingBottom: 20}}>
-                        {FootContents.map((item, index) => {
-                          return (
-                            <TouchableOpacity
-                              activeOpacity={0.5}
-                              style={{fontSize: 15, paddingBottom: 10}}
-                              key={index}>
-                              <Text>{item.content}</Text>
-                            </TouchableOpacity>
-                          );
-                        })}
-                      </View>
-                    ) : null} */}
 
                     <TouchableOpacity
                       activeOpacity={0.5}
