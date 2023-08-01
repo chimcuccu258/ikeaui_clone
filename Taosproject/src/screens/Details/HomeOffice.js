@@ -16,10 +16,7 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import {useNavigation} from '@react-navigation/native';
 
-
-
 const HomeOffice = ({route}) => {
-
   const {data} = route.params;
 
   console.log(data);
@@ -275,11 +272,12 @@ const HomeOffice = ({route}) => {
             [{nativeEvent: {contentOffset: {y: AnimatedHeaderValue}}}],
             {useNativeDriver: false},
           )}
-             
           ListHeaderComponent={<ReturnHome />}
           ListFooterComponent={
             <View style={{marginTop: 30}}>
-              <Text style={{fontSize: 30, fontWeight: '700'}}>{data.productName}</Text>
+              <Text style={{fontSize: 30, fontWeight: '700'}}>
+                {data.productName}
+              </Text>
               <View style={{marginTop: 10}}>
                 <FlatList
                   ref={flatListRef}

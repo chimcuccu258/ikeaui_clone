@@ -4,10 +4,6 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Home from './src/screens/Home';
 import MainNavigation from './src/navigation/mainNavigation';
 
-// import Cart from './src/screens/Cart';
-// import ProductInfo from './src/screens/ProductInfo';
-// import Home from './src/screens/Home';
-
 const Stack = createNativeStackNavigator();
 
 const App = () => {
