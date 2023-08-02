@@ -12,160 +12,96 @@ export const COLORS = {
   backgroundDark: '#777777',
 };
 
-export const Items = [
-  {
-    id: 1,
-    category: 'furniture',
-    productName: 'VIMLE 2-seat sofa',
-    productPrice: 579,
-    description: '2-seat sofa, with wide armrests/Saxemara black-blue',
-    isOff: true,
-    productImage: require('./images/furniture/sofas/fabric_sofas/two-seat-sofas/VIMLE/VIMLE_1.jpg'),
-    isAvailable: true,
-    productImageList: [
-      require('./images/furniture/sofas/fabric_sofas/two-seat-sofas/VIMLE/VIMLE_2.jpg'),
-      require('./images/furniture/sofas/fabric_sofas/two-seat-sofas/VIMLE/VIMLE_3.jpg'),
-      require('./images/furniture/sofas/fabric_sofas/two-seat-sofas/VIMLE/VIMLE_4.jpg'),
-    ],
-  },
-  {
-    id: 2,
-    category: 'furniture',
-    productName: 'SMEDSTORP 2-seat sofa',
-    productPrice: 679,
-    description: '2-seat sofa, Viarp/beige/brown oak',
-    isOff: false,
-    productImage: require('./images/furniture/sofas/fabric_sofas/two-seat-sofas/SMEDSTORP/SMEDSTORP_1.jpg'),
-    isAvailable: true,
-    productImageList: [
-      require('./images/furniture/sofas/fabric_sofas/two-seat-sofas/SMEDSTORP/SMEDSTORP_2.jpg'),
-      require('./images/furniture/sofas/fabric_sofas/two-seat-sofas/SMEDSTORP/SMEDSTORP_3.jpg'),
-      require('./images/furniture/sofas/fabric_sofas/two-seat-sofas/SMEDSTORP/SMEDSTORP_4.jpg'),
-    ],
-  },
-  {
-    id: 3,
-    category: 'furniture',
-    productName: 'SODERHAMN 2-seat sofa',
-    productPrice: 669,
-    description: '2-seat sofa, with chaise longue/Gunnared beige',
-    isOff: true,
-    // offPercentage: 18,
-    productImage: require('./images/furniture/sofas/fabric_sofas/two-seat-sofas/SODERHAMN/SODERHAMN_1.jpg'),
-    isAvailable: true,
-    productImageList: [
-      require('./images/furniture/sofas/fabric_sofas/two-seat-sofas/SODERHAMN/SODERHAMN_2.jpg'),
-      require('./images/furniture/sofas/fabric_sofas/two-seat-sofas/SODERHAMN/SODERHAMN_3.jpg'),
-      require('./images/furniture/sofas/fabric_sofas/two-seat-sofas/SODERHAMN/SODERHAMN_4.jpg'),
-    ],
-  },
-  {
-    id: 4,
-    category: 'furniture',
-    productName: 'KNOPPARP 2-seat sofa',
-    productPrice: 99.99,
-    description: '2-seat sofa, Knisa light grey',
-    isOff: false,
-    productImage: require('./images/furniture/sofas/fabric_sofas/two-seat-sofas/KNOPPARP/KNOPPARP_1.jpg'),
-    isAvailable: true,
-    productImageList: [
-      require('./images/furniture/sofas/fabric_sofas/two-seat-sofas/KNOPPARP/KNOPPARP_2.jpg'),
-      require('./images/furniture/sofas/fabric_sofas/two-seat-sofas/KNOPPARP/KNOPPARP_3.jpg'),
-      require('./images/furniture/sofas/fabric_sofas/two-seat-sofas/KNOPPARP/KNOPPARP_4.jpg'),
-    ],
-  },
-];
-
 export const Rooms = [
   {
     id: 1,
     category: 'rooms',
     productName: 'Home office',
-    productImage: require('./images/rooms/Room_1.jpg'),
+    productImage: require('./images/rooms/AllRooms/Room_1.jpg'),
     screen: "HomeOffice"
   },
   {
     id: 2,
     category: 'rooms',
     productName: 'Living room',
-    productImage: require('./images/rooms/Room_2.jpg'),
+    productImage: require('./images/rooms/AllRooms/Room_2.jpg'),
     screen: "LivingRoom"
   },
   {
     id: 3,
     category: 'rooms',
     productName: 'Dining',
-    productImage: require('./images/rooms/Room_3.jpg'),
+    productImage: require('./images/rooms/AllRooms/Room_3.jpg'),
     screen: "Dining"
   },
   {
     id: 4,
     category: 'rooms',
     productName: 'Bedroom',
-    productImage: require('./images/rooms/Room_4.jpg'),
+    productImage: require('./images/rooms/AllRooms/Room_4.jpg'),
     screen: "Bedroom"
   },
   {
     id: 5,
     category: 'rooms',
     productName: "Children's room",
-    productImage: require('./images/rooms/Room_5.jpg'),
+    productImage: require('./images/rooms/AllRooms/Room_5.jpg'),
     screen: "ChildRoom"
   },
   {
     id: 6,
     category: 'rooms',
     productName: 'Bathroom',
-    productImage: require('./images/rooms/Room_6.jpg'),
+    productImage: require('./images/rooms/AllRooms/Room_6.jpg'),
     screen: "Bathroom"
   },
   {
     id: 7,
     category: 'rooms',
     productName: 'Kitchen',
-    productImage: require('./images/rooms/Room_7.jpg'),
+    productImage: require('./images/rooms/AllRooms/Room_7.jpg'),
     screen: "Kitchen"
   },
   {
     id: 8,
     category: 'rooms',
     productName: 'Hallway',
-    productImage: require('./images/rooms/Room_8.jpg'),
+    productImage: require('./images/rooms/AllRooms/Room_8.jpg'),
     screen: "Hallway"
   },
   {
     id: 9,
     category: 'rooms',
     productName: 'Laundry room',
-    productImage: require('./images/rooms/Room_9.jpg'),
+    productImage: require('./images/rooms/AllRooms/Room_9.jpg'),
     screen: "LaundryRoom"
   },
   {
     id: 10,
     category: 'rooms',
     productName: 'Outdoor',
-    productImage: require('./images/rooms/Room_10.jpg'),
+    productImage: require('./images/rooms/AllRooms/Room_10.jpg'),
     screen: "Outdoor"
   },
   {
     id: 11,
     category: 'rooms',
     productName: 'Student room',
-    productImage: require('./images/rooms/Room_11.jpg'),
+    productImage: require('./images/rooms/AllRooms/Room_11.jpg'),
     screen: "StudentRoom"
   },
   {
     id: 12,
     category: 'rooms',
     productName: "Teen's room",
-    productImage: require('./images/rooms/Room_12.jpg'),
+    productImage: require('./images/rooms/AllRooms/Room_12.jpg'),
     screen: "TeenRoom"
   },
   {
     id: 13,
     category: 'rooms',
     productName: 'IKEA for Business',
-    productImage: require('./images/rooms/Room_13.jpg'),
+    productImage: require('./images/rooms/AllRooms/Room_13.jpg'),
     screen: "Business"
   },
 ];

@@ -3,7 +3,7 @@ import {View, Text, TouchableOpacity, Animated} from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import {COLORS, FootContents} from '../database/database';
 
-const FooterComponent = () => {
+const FooterComponent = ({scrollToTop}) => {
   const [rotateFooterContentA, setRotationFooterContentA] = useState(
     new Animated.Value(0),
   );
@@ -26,11 +26,97 @@ const FooterComponent = () => {
     }).start();
   };
 
-  const scrollToTop = () => {
-    scrollViewRef.current?.scrollToOffset({offset: 0, animated: true});
-  };
-
   const scrollViewRef = useRef(null);
+
+  const DATA = [
+    {
+      id: 1,
+      title: 'Customer Service',
+      category: 'customerService',
+    },
+    {
+      id: 2,
+      title: 'My orders',
+      category: 'customerService',
+    },
+    {
+      id: 3,
+      title: 'Returns & claims',
+      category: 'customerService',
+    },
+    {
+      id: 4,
+      title: 'Delivery',
+      category: 'customerService',
+    },
+    {
+      id: 5,
+      title: 'Stock information',
+      category: 'customerService',
+    },
+    {
+      id: 6,
+      title: 'Services',
+      category: 'customerService',
+    },
+    {
+      id: 7,
+      title: 'Recalls',
+      category: 'customerService',
+    },
+    {
+      id: 8,
+      title: 'Personal advice',
+      category: 'customerService',
+    },
+    {
+      id: 9,
+      title: 'This is IKEA',
+      category: 'about',
+    },
+    {
+      id: 10,
+      title: 'IKEA Concepts',
+      category: 'about',
+    },
+    {
+      id: 11,
+      title: 'Sustainability',
+      category: 'about',
+    },
+    {
+      id: 12,
+      title: 'Ideas & inspiration',
+      category: 'about',
+    },
+    {
+      id: 13,
+      title: 'Catalogue & brochures',
+      category: 'about',
+    },
+    {
+      id: 14,
+      title: 'Campaigns',
+      category: 'about',
+    },
+    {
+      id: 15,
+      title: 'Working at IKEA',
+      category: 'about',
+    },
+    {
+      id: 16,
+      title: 'Press',
+      category: 'about',
+    },
+    {
+      id: 17,
+      title: 'IKEA news',
+      category: 'about',
+    },
+  ];
+
+  const flatListRef = useRef();
 
   return (
     <View

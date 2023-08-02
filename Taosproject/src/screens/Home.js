@@ -12,7 +12,7 @@ import {
   StyleSheet,
 } from 'react-native';
 import React, {useEffect, useState, useRef} from 'react';
-import {COLORS, Items, Rooms, FootContents} from '../database/database';
+import {COLORS, Rooms, FootContents} from '../database/database';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import {useNavigation} from '@react-navigation/native';
@@ -21,23 +21,11 @@ import FooterComponent from '../components/FooterComponent';
 import SearchComponent from '../components/SearchComponent';
 import NavComponent from '../components/NavComponent';
 import ListNav from '../components/ListNav';
+import HeadFlat from '../components/HeadFlat';
 
 const Home = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [room, setRoom] = useState([]);
-  const [rotateFooterContentA, setRotationFooterContentA] = useState(
-    new Animated.Value(0),
-  );
-  const [rotateFooterContentB, setRotationFooterContentB] = useState(
-    new Animated.Value(0),
-  );
-  const [rotateFooterContentC, setRotationFooterContentC] = useState(
-    new Animated.Value(0),
-  );
-  const [rotateFooterContentD, setRotationFooterContentD] = useState(
-    new Animated.Value(0),
-  );
-  const [isOpenFooterContentA, setIsOpenFooterContentA] = useState(false);
 
   useEffect(() => {
     const unsubscribe = navigation.addListener('focus', () => {
@@ -67,6 +55,10 @@ const Home = () => {
     outputRange: [Header_Max_Height, Header_Min_Height],
     extrapolate: 'clamp',
   });
+
+  const scrollToTop = () => {
+    scrollViewRef.current?.scrollToOffset({offset: 0, animated: true});
+  };
 
   const scrollViewRef = useRef(null);
 
@@ -123,31 +115,8 @@ const Home = () => {
           style={{
             marginTop: 10,
           }}
-          ListHeaderComponent={
-            <View style={{marginRight: 10, marginLeft: 10}}>
-              <ListNav />
-              <Text
-                style={{
-                  fontSize: 26,
-                  color: COLORS.blue,
-                  fontWeight: '700',
-                  letterSpacing: 1,
-                  marginBottom: 10,
-                }}>
-                Hej! Welcome back
-              </Text>
-              <Text
-                style={{
-                  fontSize: 24,
-                  color: COLORS.black,
-                  fontWeight: '700',
-                  marginBottom: 20,
-                }}>
-                All rooms
-              </Text>
-            </View>
-          }
-          ListFooterComponent={<FooterComponent />}
+          ListHeaderComponent={<HeadFlat />}
+          ListFooterComponent={<FooterComponent scrollToTop={scrollToTop} />}
         />
       </View>
     </SafeAreaView>

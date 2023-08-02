@@ -15,11 +15,12 @@ import {COLORS} from '../../database/database';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import {useNavigation} from '@react-navigation/native';
+import NavComponent from '../../components/NavComponent';
+import SearchComponent from '../../components/SearchComponent';
+import TopCarousel from '../../components/TopCarousel';
 
 const HomeOffice = ({route}) => {
   const {data} = route.params;
-
-  console.log(data);
 
   const navigation = useNavigation();
   const [searchQuery, setSearchQuery] = useState('');
@@ -51,76 +52,6 @@ const HomeOffice = ({route}) => {
   });
 
   const scrollViewRef = useRef(null);
-  const flatListRef = useRef();
-
-  const CarouselData = [
-    {
-      id: 1,
-      category: 'carousel',
-      title: 'Desks & computer desks',
-      image: require('../../database/images/rooms/HomeOffice/HomeCarousel_1.jpg'),
-    },
-    {
-      id: 2,
-      category: 'carousel',
-      title: 'Desk chairs',
-      image: require('../../database/images/rooms/HomeOffice/HomeCarousel_2.jpg'),
-    },
-    {
-      id: 3,
-      category: 'carousel',
-      title: 'Storage units & cabinets',
-      image: require('../../database/images/rooms/HomeOffice/HomeCarousel_3.jpg'),
-    },
-    {
-      id: 4,
-      category: 'carousel',
-      title: 'Drawer units',
-      image: require('../../database/images/rooms/HomeOffice/HomeCarousel_4.jpg'),
-    },
-    {
-      id: 5,
-      category: 'carousel',
-      title: 'Paper & media organisers',
-      image: require('../../database/images/rooms/HomeOffice/HomeCarousel_5.jpg'),
-    },
-    {
-      id: 6,
-      category: 'carousel',
-      title: 'Work lamps',
-      image: require('../../database/images/rooms/HomeOffice/HomeCarousel_6.jpg'),
-    },
-    {
-      id: 7,
-      category: 'carousel',
-      title: 'Paper & media boxes',
-      image: require('../../database/images/rooms/HomeOffice/HomeCarousel_7.jpg'),
-    },
-    {
-      id: 8,
-      category: 'carousel',
-      title: 'Bookcases',
-      image: require('../../database/images/rooms/HomeOffice/HomeCarousel_8.jpg'),
-    },
-    {
-      id: 9,
-      category: 'carousel',
-      title: 'Lighting',
-      image: require('../../database/images/rooms/HomeOffice/HomeCarousel_9.jpg'),
-    },
-    {
-      id: 10,
-      category: 'carousel',
-      title: 'Curtains',
-      image: require('../../database/images/rooms/HomeOffice/HomeCarousel_10.jpg'),
-    },
-    {
-      id: 11,
-      category: 'carousel',
-      title: 'Acoustic panels',
-      image: require('../../database/images/rooms/HomeOffice/HomeCarousel_11.jpg'),
-    },
-  ];
 
   const ReturnHome = ({data}) => {
     return (
@@ -166,103 +97,8 @@ const HomeOffice = ({route}) => {
           </TouchableOpacity>
         </Animated.View>
 
-        <Animated.View>
-          <View
-            style={{
-              flexDirection: 'row',
-              justifyContent: 'space-between',
-              alignItems: 'center',
-              margin: 10,
-            }}>
-            <TouchableOpacity activeOpacity={0.5}>
-              <Image
-                style={{width: 90, height: 36}}
-                source={require('../../database/images/Ikea_logo.svg.png')}
-              />
-            </TouchableOpacity>
-
-            <View
-              style={{
-                flexDirection: 'row',
-              }}>
-              <TouchableOpacity activeOpacity={0.5}>
-                <Icon
-                  name="user-o"
-                  style={{
-                    fontSize: 22,
-                    marginRight: 25,
-                    color: COLORS.blue,
-                  }}
-                />
-              </TouchableOpacity>
-              <TouchableOpacity activeOpacity={0.5}>
-                <Icon
-                  name="heart-o"
-                  style={{
-                    fontSize: 22,
-                    marginRight: 25,
-                    color: COLORS.blue,
-                  }}
-                />
-              </TouchableOpacity>
-              <TouchableOpacity activeOpacity={0.5}>
-                <Icon
-                  name="shopping-cart"
-                  style={{
-                    fontSize: 24,
-                    marginRight: 25,
-                    color: COLORS.blue,
-                  }}
-                />
-              </TouchableOpacity>
-              <TouchableOpacity activeOpacity={0.5}>
-                <Icon
-                  name="bars"
-                  style={{
-                    fontSize: 22,
-                    color: COLORS.blue,
-                  }}
-                />
-              </TouchableOpacity>
-            </View>
-          </View>
-        </Animated.View>
-
-        <Animated.View
-          style={{
-            marginRight: 10,
-            marginLeft: 10,
-          }}>
-          <View
-            style={{
-              flexDirection: 'row',
-              justifyContent: 'space-between',
-              alignItems: 'center',
-            }}>
-            <Icon
-              name="search"
-              style={{
-                fontSize: 20,
-                position: 'absolute',
-                left: 25,
-                top: 10,
-                zIndex: 1,
-              }}
-            />
-            <TextInput
-              style={{
-                flex: 1,
-                height: 40,
-                backgroundColor: 'rgb(245, 245, 245)',
-                borderRadius: 50,
-                paddingHorizontal: 60,
-              }}
-              placeholder="What are you looking for?"
-              value={searchQuery}
-              onChangeText={setSearchQuery}
-            />
-          </View>
-        </Animated.View>
+        <NavComponent />
+        <SearchComponent />
 
         <FlatList
           ref={scrollViewRef}
@@ -272,55 +108,14 @@ const HomeOffice = ({route}) => {
             [{nativeEvent: {contentOffset: {y: AnimatedHeaderValue}}}],
             {useNativeDriver: false},
           )}
-          ListHeaderComponent={<ReturnHome />}
-          ListFooterComponent={
-            <View style={{marginTop: 30}}>
-              <Text style={{fontSize: 30, fontWeight: '700'}}>
-                {data.productName}
-              </Text>
-              <View style={{marginTop: 10}}>
-                <FlatList
-                  ref={flatListRef}
-                  data={CarouselData}
-                  horizontal
-                  showsHorizontalScrollIndicator={false}
-                  keyExtractor={item => item.id}
-                  renderItem={({item}) => {
-                    return (
-                      <TouchableOpacity
-                        activeOpacity={0.5}
-                        showsVerticalScrollIndicator={false}
-                        style={{marginRight: 20}}>
-                        <View
-                          style={{
-                            borderRadius: 10,
-                            display: 'flex',
-                            overflow: 'hidden',
-                          }}>
-                          <View
-                            style={{
-                              overflow: 'hidden',
-                              width: '100%',
-                            }}>
-                            <Image
-                              style={{
-                                objectFit: 'cover',
-                                borderRadius: 10,
-                                width: 180,
-                                height: 100,
-                              }}
-                              source={item.image}
-                            />
-                          </View>
-                          <Text style={{marginTop: 10}}>{item.title}</Text>
-                        </View>
-                      </TouchableOpacity>
-                    );
-                  }}
-                />
-              </View>
-            </View>
-          }
+          ListHeaderComponent={() => {
+            return (
+              <>
+                <ReturnHome />
+                <TopCarousel data={data} />
+              </>
+            );
+          }}
         />
       </View>
     </SafeAreaView>

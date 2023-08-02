@@ -6,7 +6,6 @@ import {COLORS} from '../database/database';
 
 const ProductCard = props => {
   const data = props.data;
-
   const navigation = useNavigation();
 
   return (
