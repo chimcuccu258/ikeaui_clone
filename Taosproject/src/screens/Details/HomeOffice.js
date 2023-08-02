@@ -22,6 +22,8 @@ import TopCarousel from '../../components/TopCarousel';
 const HomeOffice = ({route}) => {
   const {data} = route.params;
 
+  console.log(data);
+
   const navigation = useNavigation();
   const [searchQuery, setSearchQuery] = useState('');
   const [rotateFooterContentA, setRotationFooterContentA] = useState(
