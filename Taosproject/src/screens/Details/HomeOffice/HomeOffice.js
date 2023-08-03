@@ -11,13 +11,14 @@ import {
   Animated,
 } from 'react-native';
 import React, {useEffect, useState, useRef} from 'react';
-import {COLORS} from '../../database/database';
+import {COLORS} from '../../../database/database';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import {useNavigation} from '@react-navigation/native';
-import NavComponent from '../../components/NavComponent';
-import SearchComponent from '../../components/SearchComponent';
-import TopCarousel from '../../components/TopCarousel';
+import NavComponent from '../../../components/NavComponent';
+import SearchComponent from '../../../components/SearchComponent';
+import TopCarousel from '../../../components/TopCarousel';
+import FirstSection from './FirstSection';
 
 const HomeOffice = ({route}) => {
   const {data} = route.params;
@@ -60,7 +61,7 @@ const HomeOffice = ({route}) => {
       <TouchableOpacity
         activeOpacity={0.5}
         onPress={() => navigation.navigate('Home', {data: data})}>
-        <Text>Rooms</Text>
+        <Text style={{fontSize: 16,}}>Rooms</Text>
       </TouchableOpacity>
     );
   };
@@ -115,6 +116,7 @@ const HomeOffice = ({route}) => {
               <>
                 <ReturnHome />
                 <TopCarousel data={data} />
+                <FirstSection />
               </>
             );
           }}

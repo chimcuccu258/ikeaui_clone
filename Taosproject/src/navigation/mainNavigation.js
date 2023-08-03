@@ -1,7 +1,7 @@
 import {View, Text} from 'react-native';
 import React from 'react';
 import Home from '../screens/Home';
-import HomeOffice from '../screens/Details/HomeOffice';
+import HomeOffice from '../screens/Details/HomeOffice/HomeOffice';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import LivingRoom from '../screens/Details/LivingRoom';
 import Dining from '../screens/Details/Dining';

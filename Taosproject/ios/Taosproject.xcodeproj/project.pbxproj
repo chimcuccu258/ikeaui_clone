@@ -24,6 +24,7 @@
 		0A2D914B2A6A405A0011AF59 /* EvilIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0A2D913A2A6A40030011AF59 /* EvilIcons.ttf */; };
 		0A2D914C2A6A405A0011AF59 /* SimpleLineIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0A2D913B2A6A40030011AF59 /* SimpleLineIcons.ttf */; };
 		0A2D914D2A6A405A0011AF59 /* MaterialIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0A2D913C2A6A40030011AF59 /* MaterialIcons.ttf */; };
+		0A5ADD432A7B40730085AAE9 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.mm */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		5AED14D31F0C0DC84DD25892 /* libPods-Taosproject.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E1624B09F9A71CF2C3741893 /* libPods-Taosproject.a */; };
@@ -307,6 +308,7 @@
 				0A2D91462A6A405A0011AF59 /* Ionicons.ttf in Resources */,
 				0A2D91472A6A405A0011AF59 /* FontAwesome5_Solid.ttf in Resources */,
 				0A2D91482A6A405A0011AF59 /* FontAwesome5_Regular.ttf in Resources */,
+				0A5ADD432A7B40730085AAE9 /* Images.xcassets in Resources */,
 				0A2D91492A6A405A0011AF59 /* FontAwesome.ttf in Resources */,
 				0A2D914A2A6A405A0011AF59 /* Zocial.ttf in Resources */,
 				0A2D914B2A6A405A0011AF59 /* EvilIcons.ttf in Resources */,

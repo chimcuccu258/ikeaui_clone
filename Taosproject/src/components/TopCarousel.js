@@ -12,69 +12,69 @@ const TopCarousel = props => {
   const CarouselData = [
     {
       id: 1,
-      category: 'carousel',
+      category: 'homeOffice',
       title: 'Desks & computer desks',
       image: require('../database/images/rooms/HomeOffice/TopCarousel/HomeCarousel_1.jpg'),
     },
     {
       id: 2,
-      category: 'carousel',
+      category: 'homeOffice',
       title: 'Desk chairs',
-      image: require('../database/images/rooms/HomeOffice/TopCarousel/HomeCarousel_1.jpg'),
+      image: require('../database/images/rooms/HomeOffice/TopCarousel/HomeCarousel_2.jpg'),
     },
     {
       id: 3,
-      category: 'carousel',
+      category: 'homeOffice',
       title: 'Storage units & cabinets',
-      image: require('../database/images/rooms/HomeOffice/TopCarousel/HomeCarousel_1.jpg'),
+      image: require('../database/images/rooms/HomeOffice/TopCarousel/HomeCarousel_3.jpg'),
     },
     {
       id: 4,
-      category: 'carousel',
+      category: 'homeOffice',
       title: 'Drawer units',
-      image: require('../database/images/rooms/HomeOffice/TopCarousel/HomeCarousel_1.jpg'),
+      image: require('../database/images/rooms/HomeOffice/TopCarousel/HomeCarousel_4.jpg'),
     },
     {
       id: 5,
-      category: 'carousel',
+      category: 'homeOffice',
       title: 'Paper & media organisers',
-      image: require('../database/images/rooms/HomeOffice/TopCarousel/HomeCarousel_1.jpg'),
+      image: require('../database/images/rooms/HomeOffice/TopCarousel/HomeCarousel_5.jpg'),
     },
     {
       id: 6,
-      category: 'carousel',
+      category: 'homeOffice',
       title: 'Work lamps',
-      image: require('../database/images/rooms/HomeOffice/TopCarousel/HomeCarousel_1.jpg'),
+      image: require('../database/images/rooms/HomeOffice/TopCarousel/HomeCarousel_6.jpg'),
     },
     {
       id: 7,
-      category: 'carousel',
+      category: 'homeOffice',
       title: 'Paper & media boxes',
-      image: require('../database/images/rooms/HomeOffice/TopCarousel/HomeCarousel_1.jpg'),
+      image: require('../database/images/rooms/HomeOffice/TopCarousel/HomeCarousel_7.jpg'),
     },
     {
       id: 8,
-      category: 'carousel',
+      category: 'homeOffice',
       title: 'Bookcases',
-      image: require('../database/images/rooms/HomeOffice/TopCarousel/HomeCarousel_1.jpg'),
+      image: require('../database/images/rooms/HomeOffice/TopCarousel/HomeCarousel_8.jpg'),
     },
     {
       id: 9,
-      category: 'carousel',
+      category: 'homeOffice',
       title: 'Lighting',
-      image: require('../database/images/rooms/HomeOffice/TopCarousel/HomeCarousel_1.jpg'),
+      image: require('../database/images/rooms/HomeOffice/TopCarousel/HomeCarousel_9.jpg'),
     },
     {
       id: 10,
-      category: 'carousel',
+      category: 'homeOffice',
       title: 'Curtains',
-      image: require('../database/images/rooms/HomeOffice/TopCarousel/HomeCarousel_1.jpg'),
+      image: require('../database/images/rooms/HomeOffice/TopCarousel/HomeCarousel_10.jpg'),
     },
     {
       id: 11,
-      category: 'carousel',
+      category: 'homeOffice',
       title: 'Acoustic panels',
-      image: require('../database/images/rooms/HomeOffice/TopCarousel/HomeCarousel_1.jpg'),
+      image: require('../database/images/rooms/HomeOffice/TopCarousel/HomeCarousel_11.jpg'),
     },
   ];
 
@@ -89,36 +89,40 @@ const TopCarousel = props => {
           showsHorizontalScrollIndicator={false}
           keyExtractor={item => item.id}
           renderItem={({item}) => {
-            return (
-              <TouchableOpacity
-                activeOpacity={0.5}
-                showsVerticalScrollIndicator={false}
-                style={{marginRight: 20}}>
-                <View
-                  style={{
-                    borderRadius: 10,
-                    display: 'flex',
-                    overflow: 'hidden',
-                  }}>
+            if (item.category === 'homeOffice') {
+              return (
+                <TouchableOpacity
+                  activeOpacity={0.5}
+                  showsVerticalScrollIndicator={false}
+                  style={{marginRight: 20}}>
                   <View
                     style={{
+                      borderRadius: 10,
+                      display: 'flex',
                       overflow: 'hidden',
-                      width: '100%',
                     }}>
-                    <Image
+                    <View
                       style={{
-                        objectFit: 'cover',
-                        borderRadius: 10,
-                        width: 180,
-                        height: 100,
-                      }}
-                      source={item.image}
-                    />
+                        overflow: 'hidden',
+                        width: '100%',
+                      }}>
+                      <Image
+                        style={{
+                          objectFit: 'cover',
+                          borderRadius: 10,
+                          width: 180,
+                          height: 100,
+                        }}
+                        source={item.image}
+                      />
+                    </View>
+                    <Text style={{marginTop: 10}}>{item.title}</Text>
                   </View>
-                  <Text style={{marginTop: 10}}>{item.title}</Text>
-                </View>
-              </TouchableOpacity>
-            );
+                </TouchableOpacity>
+              );
+            } else {
+              return null;
+            }
           }}
         />
       </View>
