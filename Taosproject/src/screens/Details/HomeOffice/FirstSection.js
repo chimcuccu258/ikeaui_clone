@@ -1,4 +1,11 @@
-import {View, Text, Image, TouchableOpacity, FlatList, Dimensions} from 'react-native';
+import {
+  View,
+  Text,
+  Image,
+  TouchableOpacity,
+  FlatList,
+  Dimensions,
+} from 'react-native';
 import MasonryList from '@react-native-seoul/masonry-list';
 import React, {useRef} from 'react';
 import {COLORS} from '../../../database/database';
@@ -8,48 +15,20 @@ const FirstSection = () => {
     {
       id: 1,
       image: require('../../../database/images/rooms/HomeOffice/FirstSection/FirstSection_2.jpg'),
-      width: 200,
-      height: 300,
     },
     {
       id: 2,
       image: require('../../../database/images/rooms/HomeOffice/FirstSection/FirstSection_3.jpg'),
-      width: 150,
-      height: 250,
     },
     {
       id: 3,
       image: require('../../../database/images/rooms/HomeOffice/FirstSection/FirstSection_4.jpg'),
-      width: 300,
-      height: 200,
     },
     {
       id: 4,
       image: require('../../../database/images/rooms/HomeOffice/FirstSection/FirstSection_5.jpg'),
-      width: 250,
-      height: 400,
     },
   ];
-
-  const flatListRef = useRef();
-
-  // const CardItem = () => {
-  //   <TouchableOpacity
-  //     activeOpacity={0.5}
-  //     data={DATA}
-  //     keyExtractor={item => item.id}>
-  //     <View>
-  //       <Image
-  //         style={{
-  //           objectFit: 'cover',
-  //           width: 100,
-  //           height: 100,
-  //         }}
-  //         source={DATA.image}
-  //       />
-  //     </View>
-  //   </TouchableOpacity>;
-  // };
 
   return (
     <View style={{marginTop: 40}}>
@@ -68,7 +47,6 @@ const FirstSection = () => {
       />
 
       <FlatList
-        // ref={flatListRef}
         data={DATA}
         numColumns={2}
         keyExtractor={item => item.id}
