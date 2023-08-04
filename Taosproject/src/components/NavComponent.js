@@ -1,7 +1,7 @@
 import React from 'react';
-import { View, TouchableOpacity, Image } from 'react-native';
+import {View, TouchableOpacity, Image, Text} from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import { COLORS } from '../database/database';
+import {COLORS} from '../database/database';
 
 const NavComponent = () => {
   return (
@@ -11,11 +11,10 @@ const NavComponent = () => {
         justifyContent: 'space-between',
         alignItems: 'center',
         margin: 10,
-      }}
-    >
+      }}>
       <TouchableOpacity activeOpacity={0.5}>
         <Image
-          style={{ width: 90, height: 36 }}
+          style={{width: 90, height: 36}}
           source={require('../database/images/Ikea_logo.svg.png')}
         />
       </TouchableOpacity>
@@ -23,8 +22,7 @@ const NavComponent = () => {
       <View
         style={{
           flexDirection: 'row',
-        }}
-      >
+        }}>
         <TouchableOpacity activeOpacity={0.5}>
           <Icon
             name="user-o"
@@ -54,6 +52,17 @@ const NavComponent = () => {
               color: COLORS.blue,
             }}
           />
+          <View
+            style={{
+              backgroundColor: COLORS.red,
+              position: 'absolute',
+              paddingHorizontal: 5,
+              borderRadius: 10,
+              right: 15,
+              bottom: 15,
+            }}>
+            <Text style={{color: COLORS.white, fontWeight: '700'}}>1</Text>
+          </View>
         </TouchableOpacity>
         <TouchableOpacity activeOpacity={0.5}>
           <Icon

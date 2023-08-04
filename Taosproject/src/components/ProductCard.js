@@ -2,7 +2,7 @@ import React from 'react';
 import {View, Text, TouchableOpacity, Image} from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import {useNavigation} from '@react-navigation/native';
-import {COLORS} from '../database/database';
+import {COLORS, Rooms} from '../database/database';
 
 const ProductCard = props => {
   const data = props.data;

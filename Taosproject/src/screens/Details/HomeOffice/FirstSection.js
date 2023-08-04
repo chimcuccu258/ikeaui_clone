@@ -10,6 +10,8 @@ import MasonryList from '@react-native-seoul/masonry-list';
 import React, {useRef} from 'react';
 import {COLORS} from '../../../database/database';
 import {Colors} from 'react-native/Libraries/NewAppScreen';
+import ProductCard from '../../../components/ProductCard';
+import ProductCarousel from './ProductCarousel';
 
 const FirstSection = () => {
   const DATA = [
@@ -45,7 +47,7 @@ const FirstSection = () => {
         </Text>
       </View>
 
-      <View style={{marginTop: 20,}}>
+      <View style={{marginTop: 20}}>
         <TouchableOpacity activeOpacity={0.5}>
           <Image
             source={require('../../../database/images/rooms/HomeOffice/FirstSection/FirstSection_1.jpg')}
@@ -77,13 +79,10 @@ const FirstSection = () => {
             );
           }}
         />
-        
       </View>
-      <View style={{zIndex: 1}}>
-          <Text style={{position: 'absolute', zIndex: 10, color: COLORS.blue}}>
-            hihi
-          </Text>
-        </View>
+      <View style={{marginTop: 20,}}>
+          <ProductCarousel />
+      </View>
     </View>
   );
 };

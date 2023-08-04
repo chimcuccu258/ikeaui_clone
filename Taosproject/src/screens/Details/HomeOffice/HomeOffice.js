@@ -19,6 +19,8 @@ import NavComponent from '../../../components/NavComponent';
 import SearchComponent from '../../../components/SearchComponent';
 import TopCarousel from '../../../components/TopCarousel';
 import FirstSection from './FirstSection';
+import SecondSection from './SecondSection';
+import ThirdSection from './ThirdSection';
 
 const HomeOffice = ({route}) => {
   const {data} = route.params;
@@ -117,6 +119,8 @@ const HomeOffice = ({route}) => {
                 <ReturnHome />
                 <TopCarousel data={data} />
                 <FirstSection />
+                <SecondSection />
+                <ThirdSection />
               </>
             );
           }}

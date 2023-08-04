@@ -94,7 +94,7 @@ const TopCarousel = props => {
                 <TouchableOpacity
                   activeOpacity={0.5}
                   showsVerticalScrollIndicator={false}
-                  style={{marginRight: 20}}>
+                  style={{marginRight: 10}}>
                   <View
                     style={{
                       borderRadius: 10,
@@ -103,7 +103,6 @@ const TopCarousel = props => {
                     }}>
                     <View
                       style={{
-                        overflow: 'hidden',
                         width: '100%',
                       }}>
                       <Image
