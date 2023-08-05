@@ -39,7 +39,7 @@ const FirstSection = () => {
         <Text style={{fontWeight: '700', fontSize: 18}}>
           Working from home: we make it work for you
         </Text>
-        <Text style={{fontSize: 14, marginTop: 10, letterSpacing: 0.3}}>
+        <Text style={{fontSize: 14, marginTop: 10, lineHeight: 20}}>
           It is important to have a nice place to work at home. We can make sure
           that you will have everything you need to create a comfortable
           workspace at home. From a good desk to a comfortable office chair and
@@ -80,8 +80,8 @@ const FirstSection = () => {
           }}
         />
       </View>
-      <View style={{marginTop: 20,}}>
-          <ProductCarousel />
+      <View style={{marginTop: 20}}>
+        <ProductCarousel />
       </View>
     </View>
   );

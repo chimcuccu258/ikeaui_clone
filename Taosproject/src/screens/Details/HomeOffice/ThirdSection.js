@@ -1,5 +1,6 @@
 import {View, Text, FlatList, Touchable, Image, TouchableOpacity} from 'react-native';
 import React from 'react';
+import { COLORS } from '../../../database/database';
 
 const DATA = [
   {
@@ -36,7 +37,7 @@ const DATA = [
 
 const ThirdSection = () => {
   return (
-    <View style={{marginTop: 50}}>
+    <View style={{marginTop: 30}}>
       <Text style={{fontSize: 22, fontWeight: '700', marginBottom: 20}}>
         Furniture and storage for a well-organized home office
       </Text>
@@ -57,7 +58,7 @@ const ThirdSection = () => {
                   }}
                 />
               </TouchableOpacity>
-              <View style={{marginBottom: 40,}}>
+              <View style={{marginBottom: 30,}}>
                 <Text style={{fontSize: 14, fontWeight: '300',}}>
                   {item.description}
                 </Text>

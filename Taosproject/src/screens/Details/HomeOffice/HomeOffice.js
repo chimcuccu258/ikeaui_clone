@@ -21,6 +21,8 @@ import TopCarousel from '../../../components/TopCarousel';
 import FirstSection from './FirstSection';
 import SecondSection from './SecondSection';
 import ThirdSection from './ThirdSection';
+import FourthSection from './FourthSection';
+import FifthSection from './FifthSection';
 
 const HomeOffice = ({route}) => {
   const {data} = route.params;
@@ -121,6 +123,8 @@ const HomeOffice = ({route}) => {
                 <FirstSection />
                 <SecondSection />
                 <ThirdSection />
+                <FourthSection />
+                <FifthSection />
               </>
             );
           }}

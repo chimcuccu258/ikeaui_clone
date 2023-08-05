@@ -52,7 +52,7 @@ const SecondSection = () => {
           return (
             <View>
               <TouchableOpacity activeOpacity={0.5}>
-                <View style={{position: 'relative', alignContent: 'center',}}>
+                <View style={{ alignContent: 'center',}}>
                   <Image
                     source={item.image}
                     style={{
@@ -94,6 +94,7 @@ const SecondSection = () => {
           );
         }}
       />
+      <View style={{marginTop: 40, padding: 0.1, backgroundColor: COLORS.darkGrey, }}></View>
     </View>
   );
 };

@@ -102,7 +102,7 @@ const Home = () => {
         <FlatList
           ref={scrollViewRef}
           data={room}
-          pagingEnabled
+          // pagingEnabled
           renderItem={({item, index}) => (
             <ProductCard data={item} key={item.id} />
           )}

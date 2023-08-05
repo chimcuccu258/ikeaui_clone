@@ -125,6 +125,7 @@ const TopCarousel = props => {
           }}
         />
       </View>
+      <View style={{marginTop: 40, padding: 0.1, backgroundColor: COLORS.darkGrey, }}></View>
     </View>
   );
 };
